@@ -30,11 +30,11 @@ type CalcStats struct {
 
 func NewCalcStats(seq []int) *CalcStats {
 	cs := new(CalcStats)
-	cs.minVal = FindMinValue(seq)
-	cs.maxVal = FindMaxValue(seq)
-	cs.numElem = CountNumberOfElements(seq)
-	cs.sumElem = CalcSumOfElements(seq)
-	cs.aveVal = CalcAverageValue(seq)
+	cs.minVal = findMinValue(seq)
+	cs.maxVal = findMaxValue(seq)
+	cs.numElem = countNumberOfElements(seq)
+	cs.sumElem = calcSumOfElements(seq)
+	cs.aveVal = calcAverageValue(seq)
 	return cs
 }
 
@@ -47,21 +47,21 @@ Average value = %v
 `, cs.minVal, cs.maxVal, cs.numElem, cs.aveVal)
 }
 
-func FindMinValue(num_seq []int) int {
+func findMinValue(num_seq []int) int {
 	sort.Ints(num_seq)
 	return num_seq[0]
 }
 
-func FindMaxValue(num_seq []int) int {
+func findMaxValue(num_seq []int) int {
 	sort.Ints(num_seq)
 	return num_seq[len(num_seq)-1]
 }
 
-func CountNumberOfElements(num_seq []int) int {
+func countNumberOfElements(num_seq []int) int {
 	return len(num_seq)
 }
 
-func CalcSumOfElements(num_seq []int) int {
+func calcSumOfElements(num_seq []int) int {
 	sum := 0
 	for _, v := range num_seq {
 		sum += v
@@ -69,6 +69,6 @@ func CalcSumOfElements(num_seq []int) int {
 	return sum
 }
 
-func CalcAverageValue(num_seq []int) int {
-	return CalcSumOfElements(num_seq) / len(num_seq)
+func calcAverageValue(num_seq []int) int {
+	return calcSumOfElements(num_seq) / len(num_seq)
 }

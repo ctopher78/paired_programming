@@ -11,7 +11,7 @@ import (
 func TestFindMinValue(t *testing.T) {
 	seq := []int{6, 9, 15, -2, 92, 11}
 	expected := -2
-	actual := FindMinValue(seq)
+	actual := findMinValue(seq)
 
 	if actual != expected {
 		t.Errorf("calc(%v): expected %v, actual %v", seq, expected, actual)
@@ -21,7 +21,7 @@ func TestFindMinValue(t *testing.T) {
 func TestFindMaxValue(t *testing.T) {
 	seq := []int{6, 9, 15, -2, 92, 11}
 	expected := 92
-	actual := FindMaxValue(seq)
+	actual := findMaxValue(seq)
 
 	if actual != expected {
 		t.Errorf("calc(%v): expected %v, actual %v", seq, expected, actual)
@@ -31,7 +31,7 @@ func TestFindMaxValue(t *testing.T) {
 func TestCountNumberOfElements(t *testing.T) {
 	seq := []int{6, 9, 15, -2, 92, 11}
 	expected := 6
-	actual := CountNumberOfElements(seq)
+	actual := countNumberOfElements(seq)
 
 	if actual != expected {
 		t.Errorf("calc(%v): expected %v, actual %v", seq, expected, actual)
@@ -41,7 +41,7 @@ func TestCountNumberOfElements(t *testing.T) {
 func TestCalcSumOfElements(t *testing.T) {
 	seq := []int{6, 9, 1}
 	expected := 16
-	actual := CalcSumOfElements(seq)
+	actual := calcSumOfElements(seq)
 
 	if actual != expected {
 		t.Errorf("calc(%v): expected %v, actual %v", seq, expected, actual)
@@ -51,7 +51,7 @@ func TestCalcSumOfElements(t *testing.T) {
 func TestCalcAverageValue(t *testing.T) {
 	seq := []int{6, 9, 1}
 	expected := 5
-	actual := CalcAverageValue(seq)
+	actual := calcAverageValue(seq)
 
 	if actual != expected {
 		t.Errorf("calc(%v): expected %v, actual %v", seq, expected, actual)
@@ -91,21 +91,6 @@ func TestNewCalcStats(t *testing.T) {
 	}
 }
 
-func captureStdout(f func()) string {
-	old := os.Stdout
-	r, w, _ := os.Pipe()
-	os.Stdout = w
-
-	f()
-
-	os.Stdout = old
-
-	w.Close()
-	var buf bytes.Buffer
-	io.Copy(&buf, r)
-	return buf.String()
-}
-
 func TestPrintStats(t *testing.T) {
 	seq := []int{6, 9, 1}
 	expected := `
@@ -120,4 +105,19 @@ Average value = 5
 	if expected != actual {
 		t.Errorf("\nexpected %v\n, actual %v\n", expected, actual)
 	}
+}
+
+func captureStdout(f func()) string {
+	old := os.Stdout
+	r, w, _ := os.Pipe()
+	os.Stdout = w
+
+	f()
+
+	os.Stdout = old
+
+	w.Close()
+	var buf bytes.Buffer
+	io.Copy(&buf, r)
+	return buf.String()
 }
