@@ -1,5 +1,7 @@
 package calcstats
 
+import "sort"
+
 // Your task is to process a sequence of integer numbers
 // to determine the following statistics:
 
@@ -16,5 +18,26 @@ package calcstats
 //     o) average value = 21.833333
 
 func CalcMinValue(num_seq []int) int {
-	return 0
+	sort.Ints(num_seq)
+	return num_seq[0]
+}
+
+func CalcMaxValue(num_seq []int) int {
+	sort.Ints(num_seq)
+	return num_seq[len(num_seq)-1]
+}
+
+func NumOfElements(seq []int) int {
+	return len(seq)
+}
+
+func AverageValue(seq []int) int {
+	total := 0
+	for _, num := range seq {
+		total += num
+	}
+
+	avg := total / len(seq)
+
+	return avg
 }
