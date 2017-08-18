@@ -1,11 +1,6 @@
 Borrowed from:
 https://github.com/codingdojo-org/codingdojo.org/blob/master/content/kata/StringCalculator.md
 
----
-title: "String Calculator"
-draft: false
-date: "2017-07-26T12:00:00"
----
 
 ## First step 
     
