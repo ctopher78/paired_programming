@@ -13,6 +13,11 @@ func main() {
 
 	f = fb.GetFunc(Buzzfizz)
 	fmt.Println(f(3))
+
+	var fizzint fb.Fizint = 3
+	
+	fmt.Println(fizzint.Fizzbuzz())
+	greet.Hello()
 }
 
 func Buzzfizz(i int) string {

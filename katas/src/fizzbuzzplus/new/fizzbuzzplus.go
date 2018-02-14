@@ -22,7 +22,7 @@ type Fizzbuzzer interface {
 
 type Fizint int
 
-func(fi Fizint) Fizzbuzz() {
+func(fi Fizint) Fizzbuzz() string {
 	fb := ""
 	if fi%3 == 0 {
 		fb += "fizz"
@@ -31,7 +31,7 @@ func(fi Fizint) Fizzbuzz() {
 		fb += "buzz"
 	}
 	if fb == "" {
-		return strconv.Itoa(fi)
+		return strconv.Itoa(int(fi))
 	}
 	return fb
 }
