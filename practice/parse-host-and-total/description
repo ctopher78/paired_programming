@@ -1,0 +1,37 @@
+Function Description 
+
+Your function must create a unique list of hostnames with their number of requests and output to a file named records_filename where filename is replaced with the input filename. Each hostname should be followed by a space then the number of requests and a newline. Order doesn't matter.
+
+Constraints
+
+The log file has a maximum of 2 × 105 lines of records.
+
+Sample Input 0
+
+hosts_access_log_00.txt
+Sample Output 0
+
+Given filename = "hosts_access_log_00.txt", we process the records in hosts_access_log_00.txt and create an output file named records_hosts_access_log_00.txt containing the following rows:
+
+burger.letters.com 3
+d104.aa.net 3
+unicomp6.unicomp.net 4
+Explanation 0
+
+The log file hosts_access_log_00.txt contains the following log records:
+
+unicomp6.unicomp.net - - [01/Jul/1995:00:00:06 -0400] "GET /shuttle/countdown/ HTTP/1.0" 200 3985
+burger.letters.com - - [01/Jul/1995:00:00:11 -0400] "GET /shuttle/countdown/liftoff.html HTTP/1.0" 304 0
+burger.letters.com - - [01/Jul/1995:00:00:12 -0400] "GET /images/NASA-logosmall.gif HTTP/1.0" 304 0
+burger.letters.com - - [01/Jul/1995:00:00:12 -0400] "GET /shuttle/countdown/video/livevideo.gif HTTP/1.0" 200 0
+d104.aa.net - - [01/Jul/1995:00:00:13 -0400] "GET /shuttle/countdown/ HTTP/1.0" 200 3985
+unicomp6.unicomp.net - - [01/Jul/1995:00:00:14 -0400] "GET /shuttle/countdown/count.gif HTTP/1.0" 200 40310
+unicomp6.unicomp.net - - [01/Jul/1995:00:00:14 -0400] "GET /images/NASA-logosmall.gif HTTP/1.0" 200 786
+unicomp6.unicomp.net - - [01/Jul/1995:00:00:14 -0400] "GET /images/KSC-logosmall.gif HTTP/1.0" 200 1204
+d104.aa.net - - [01/Jul/1995:00:00:15 -0400] "GET /shuttle/countdown/count.gif HTTP/1.0" 200 40310
+d104.aa.net - - [01/Jul/1995:00:00:15 -0400] "GET /images/NASA-logosmall.gif HTTP/1.0" 200 786
+When we consolidate the data above, we confirm the following:
+
+The host unicomp6.unicomp.net made 4 requests.
+The host burger.letters.com made 3 requests.
+The host d104.aa.net made 3 requests.
