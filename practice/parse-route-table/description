@@ -1,0 +1,8 @@
+parse ip route table and print the routes associated with each protocol
+
+bgp
+1.1.1.0/24
+2.2.2.0/24
+ospf
+1.1.1.1
+4.4.4.4
