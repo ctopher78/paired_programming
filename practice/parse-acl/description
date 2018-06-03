@@ -1,4 +1,21 @@
+Problem 1:
 given a string, find the top source addresses being blocked by acls and print the source ip, the total packets, and the total bytes.
 
 example:
 1.1.1.1 10 4500
+
+
+Problem 2
+given a string, sort the top source addresses, by number of packats, being blocked by acls and print the source ip, the total packets, and the total bytes.
+
+example:
+1.1.1.1 10 4500
+2.2.2.2 9 5000
+3.3.3.3 4 3500
+
+Interesting:
+SEC-6-IPACCESSLOGP
+
+regex = `.*denied \w+ ([0-9.]).*, (\d+) packet (\d+)`
+data structure []structure
+algorithm
