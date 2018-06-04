@@ -1,12 +1,3 @@
-/*
-grab interface name: 0/0
-input rate:
-output rate
-input errors:
-crc:
-
-*/
-
 package main
 
 import (

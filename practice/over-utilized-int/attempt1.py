@@ -1,5 +1,4 @@
 
-from collections import OrderedDict
 import re
 
 ints = ['''GigabitEthernet0/0 is up, line protocol is up 
@@ -46,7 +45,7 @@ ints = ['''GigabitEthernet0/0 is up, line protocol is up
     5 minute output rate 850050000 bits/sec, 0 packets/sec
        2252 packets input, 135120 bytes, 0 no buffer
        Received 2252 broadcasts, 0 runts, 0 giants, 0 throttles
-       2 input errors, 30 CRC, 0 frame, 0 overrun, 0 ignored
+       0 input errors, 30 CRC, 0 frame, 0 overrun, 0 ignored
        0 watchdog, 0 multicast, 0 pause input
        0 input packets with dribble condition detected
        2631 packets output, 268395 bytes, 0 underruns
@@ -56,8 +55,21 @@ ints = ['''GigabitEthernet0/0 is up, line protocol is up
        0 output buffer failures, 0 output buffers swapped out''']
 
 
-iface = OrderedDict(name="", inRate=0, outRate=0, inError=0, crcError=0) 
-regx = re.compile('.*Ethernet(\d+/\d+).*')
+regx = re.compile('.*Ethernet(\d+/\d+).*input rate (\d+).*output rate (\d+).* (\d+) input errors, (\d+) CRC', re.S)
+ifaces = list()
+
 for i in ints:
-    print re.match('.*Ethernet(\d+/\d+)', i, re.S).group()
-           
+    match = regx.match(i).groups()
+    if match:
+        name, inRate, outRate, inError, crcError = regx.match(i).groups()
+
+    ifaces.append(dict(name=name, inRate=int(inRate), outRate=int(outRate), inError=int(inError), crcError=int(crcError)))
+
+sort_iface = sorted(ifaces, key=lambda k: k["outRate"], reverse=True)
+
+for i in sort_iface:
+    print "int: {iface} in: {in_rate} out: {out_rate}".format(iface=i["name"], in_rate=i["inRate"], out_rate=i["outRate"])
+
+for i in ifaces:
+    if i["inError"] > 1:
+        print i["name"], " has errors"
