@@ -1,0 +1,15 @@
+Sep 6 09:13:00 RouterName 82: Sep 6 14:12:56.872: %SYS-5-CONFIG_I: Configured from console by admin on vty0 (1.1.1.1) 
+Sep 6 09:13:01 RouterName 83: Sep 6 14:12:57.872: %SYS-6-LOGGINGHOST_STARTSTOP: Logging to host 1.1.1.1 started - CLI initiated 
+Sep 6 09:14:42 RouterName 84: Sep 6 14:14:39.048: %SYS-5-CONFIG_I: Configured from console by admin on vty0 (1.1.1.1) 
+Sep 6 09:18:13 RouterName 85: Sep 6 14:18:10.047: %SYS-5-CONFIG_I: Configured from console by admin on vty0 (1.1.1.1) 
+Sep 6 09:20:44 RouterName 86: Sep 6 14:20:35.991: %SYS-5-CONFIG_I: Configured from console by admin on vty0 (1.1.1.1) 
+Sep 6 09:20:45 RouterName 87: Sep 6 14:20:41.991: %SYS-6-LOGGINGHOST_STARTSTOP: Logging to host 1.1.1.1 stopped - CLI initiated 
+Sep 6 09:20:45 RouterName 88: Sep 6 14:20:41.991: %SYS-6-LOGGINGHOST_STARTSTOP: Logging to host 1.1.1.1 started - CLI initiated 
+Sep 6 09:25:12 RouterName 89: %SYS-5-CONFIG_I: Configured from console by admin on vty0 (1.1.1.1) 
+Sep 6 12:42:16 RouterName 90: %SYS-5-CONFIG_I: Configured from console by admin on vty0 (1.1.1.1) 
+Sep 6 12:42:47 RouterName 91: %SYS-5-CONFIG_I: Configured from console by admin on vty0 (1.1.1.1) 
+Sep 6 12:44:52 RouterName 92: %SYS-5-CONFIG_I: Configured from console by admin on vty0 (1.1.1.1) 
+Sep 7 06:20:59 RouterName 93: SSH2 0: Unexpected message received 
+Sep 7 07:02:56 RouterName 94: SSH2 0: Unexpected mesg type received 
+Sep 7 13:18:06 RouterName 95: %SYS-5-CONFIG_I: Configured from console by admin on vty0 (1.1.1.1) 
+Sep 7 13:18:06 RouterName 96: %SEC-6-IPACCESSLOGP: list 120 denied udp 10.0.0.66(137) -> 10.0.0.11(137), 33 packets
