@@ -1,10 +1,10 @@
 package main
 
 import (
-	"fmt"
 	"io/ioutil"
 	"log"
 	"regexp"
+	"sort"
 	"strconv"
 	"strings"
 )
@@ -15,43 +15,33 @@ func main() {
 
 	logs := strings.Split(string(f), "\n")
 
-	hosts := make(map[string]int)
+	type hostAttrs struct {
+		name  string
+		count int
+	}
+	hosts := make(map[string]*hostAttrs)
 	regx := regexp.MustCompile(`^(\S+)\s.*\s(\d+)$`)
 
 	for _, line := range logs {
-		if !strings.Contains(line, "GET") {
-			continue
-		}
 		match := regx.FindStringSubmatch(line)
-		if len(match) < 3 {
-			log.Println("regex problem")
+		if match == nil {
 			continue
 		}
 		name := match[1]
-		byt, err := strconv.Atoi(match[2])
-		check(err)
+		byt, _ := strconv.Atoi(match[2])
 
 		if _, ok := hosts[name]; !ok {
-			hosts[name] = byt
+			hosts[name] = &hostAttrs{name: name, count: byt}
 			continue
 		}
-		hosts[name] += byt
+		hosts[name].count++
 	}
 
-	var top = struct {
-		host string
-		byt  int
-	}{
-		byt: 0,
+	var hostSlice []hostAttrs
+	for _, v := range hosts {
+		hostSlice = append(hostSlice, *v)
 	}
-
-	for h, b := range hosts {
-		if b > top.byt {
-			top.host = h
-			top.byt = b
-		}
-	}
-	fmt.Println(top)
+	sort.Slice(hostSlice, func(i, j int) bool { return hostSlice.})
 }
 
 func check(err error) {
