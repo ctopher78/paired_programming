@@ -1,26 +1,117 @@
-R6#sh ip route
-Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
-       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
-       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
-       E1 - OSPF external type 1, E2 - OSPF external type 2
-       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
-       ia - IS-IS inter area, * - candidate default, U - per-user static route
-       o - ODR, P - periodic downloaded static route, + - replicated route
- 
+tor-a01.ord4.us#show ip route
 
-Gateway of last resort is not set
- 
-      10.0.0.0/8 is variably subnetted, 3 subnets, 2 masks
-B        10.10.10.10/32
-           [20/2] via 10.99.10.10 (SHARED), 00:11:51, FastEthernet1/0
-B        10.99.10.0/24 is directly connected, 00:11:52, FastEthernet1/0
-B        10.99.20.0/24
-           [20/2] via 10.99.10.10 (SHARED), 00:11:52, FastEthernet1/0
-      192.168.10.0/24 is variably subnetted, 2 subnets, 2 masks
-C        192.168.10.0/24 is directly connected, FastEthernet0/0
-L        192.168.10.6/32 is directly connected, FastEthernet0/0
-B     192.168.20.0/24 [200/0] via 5.5.5.5, 00:11:52
-D     192.168.100.0/24 [90/156160] via 192.168.10.7, 00:13:00, FastEthernet0/0
-D     192.168.150.0/24 [90/156160] via 192.168.10.7, 00:13:00, FastEthernet0/0
-B     192.168.200.0/24 [200/156160] via 5.5.5.5, 00:11:52
-B     192.168.250.0/24 [200/156160] via 5.5.5.5, 00:11:52
+VRF: default
+Codes: C - connected, S - static, K - kernel, 
+       O - OSPF, IA - OSPF inter area, E1 - OSPF external type 1,
+       E2 - OSPF external type 2, N1 - OSPF NSSA external type 1,
+       N2 - OSPF NSSA external type2, B - BGP, B I - iBGP, B E - eBGP,
+       R - RIP, I L1 - IS-IS level 1, I L2 - IS-IS level 2,
+       O3 - OSPFv3, A B - BGP Aggregate, A O - OSPF Summary,
+       NG - Nexthop Group Static Route, V - VXLAN Control Service,
+       DH - DHCP client installed default route, M - Martian,
+       DP - Dynamic Policy Route, L - VRF Leaked
+
+Gateway of last resort:
+ B E      0.0.0.0/0 [200/224] via 10.19.252.10, Ethernet49/1
+                              via 10.19.252.20, Ethernet50/1
+                              via 10.19.252.22, Ethernet51/1
+                              via 10.19.252.24, Ethernet52/1
+
+ B E      10.1.136.0/22 [200/0] via 10.19.252.10, Ethernet49/1
+                                via 10.19.252.20, Ethernet50/1
+                                via 10.19.252.22, Ethernet51/1
+                                via 10.19.252.24, Ethernet52/1
+ B E      10.1.142.0/24 [200/0] via 10.19.252.10, Ethernet49/1
+                                via 10.19.252.20, Ethernet50/1
+                                via 10.19.252.22, Ethernet51/1
+                                via 10.19.252.24, Ethernet52/1
+ B E      10.1.208.0/20 [200/0] via 10.19.252.10, Ethernet49/1
+                                via 10.19.252.20, Ethernet50/1
+                                via 10.19.252.22, Ethernet51/1
+                                via 10.19.252.24, Ethernet52/1
+ B E      10.1.232.0/21 [200/0] via 10.19.252.10, Ethernet49/1
+                                via 10.19.252.20, Ethernet50/1
+                                via 10.19.252.22, Ethernet51/1
+                                via 10.19.252.24, Ethernet52/1
+ B E      10.1.241.14/32 [200/0] via 10.19.252.10, Ethernet49/1
+                                 via 10.19.252.20, Ethernet50/1
+                                 via 10.19.252.22, Ethernet51/1
+                                 via 10.19.252.24, Ethernet52/1
+ B E      10.1.241.66/32 [200/0] via 10.19.252.10, Ethernet49/1
+                                 via 10.19.252.20, Ethernet50/1
+                                 via 10.19.252.22, Ethernet51/1
+                                 via 10.19.252.24, Ethernet52/1
+ B E      10.1.241.67/32 [200/0] via 10.19.252.10, Ethernet49/1
+                                 via 10.19.252.20, Ethernet50/1
+                                 via 10.19.252.22, Ethernet51/1
+                                 via 10.19.252.24, Ethernet52/1
+ B E      10.1.241.68/32 [200/0] via 10.19.252.10, Ethernet49/1
+                                 via 10.19.252.20, Ethernet50/1
+                                 via 10.19.252.22, Ethernet51/1
+                                 via 10.19.252.24, Ethernet52/1
+ B E      10.1.241.69/32 [200/0] via 10.19.252.10, Ethernet49/1
+                                 via 10.19.252.20, Ethernet50/1
+                                 via 10.19.252.22, Ethernet51/1
+                                 via 10.19.252.24, Ethernet52/1
+ B E      10.1.241.70/32 [200/0] via 10.19.252.10, Ethernet49/1
+                                 via 10.19.252.20, Ethernet50/1
+                                 via 10.19.252.22, Ethernet51/1
+                                 via 10.19.252.24, Ethernet52/1
+ B E      10.1.241.71/32 [200/0] via 10.19.252.10, Ethernet49/1
+                                 via 10.19.252.20, Ethernet50/1
+                                 via 10.19.252.22, Ethernet51/1
+                                 via 10.19.252.24, Ethernet52/1
+ B E      10.1.241.72/32 [200/0] via 10.19.252.10, Ethernet49/1
+                                 via 10.19.252.20, Ethernet50/1
+                                 via 10.19.252.22, Ethernet51/1
+                                 via 10.19.252.24, Ethernet52/1
+ B E      10.1.241.73/32 [200/0] via 10.19.252.10, Ethernet49/1
+                                 via 10.19.252.20, Ethernet50/1
+                                 via 10.19.252.22, Ethernet51/1
+                                 via 10.19.252.24, Ethernet52/1
+ B E      10.1.241.74/32 [200/0] via 10.19.252.10, Ethernet49/1
+                                 via 10.19.252.20, Ethernet50/1
+                                 via 10.19.252.22, Ethernet51/1
+                                 via 10.19.252.24, Ethernet52/1
+ B E      10.1.241.75/32 [200/0] via 10.19.252.10, Ethernet49/1
+                                 via 10.19.252.20, Ethernet50/1
+                                 via 10.19.252.22, Ethernet51/1
+                                 via 10.19.252.24, Ethernet52/1
+ B E      10.1.241.76/32 [200/0] via 10.19.252.10, Ethernet49/1
+                                 via 10.19.252.20, Ethernet50/1
+                                 via 10.19.252.22, Ethernet51/1
+                                 via 10.19.252.24, Ethernet52/1
+ B E      10.1.241.83/32 [200/0] via 10.19.252.10, Ethernet49/1
+                                 via 10.19.252.20, Ethernet50/1
+                                 via 10.19.252.22, Ethernet51/1
+                                 via 10.19.252.24, Ethernet52/1
+ B E      10.1.241.84/32 [200/0] via 10.19.252.10, Ethernet49/1
+                                 via 10.19.252.20, Ethernet50/1
+                                 via 10.19.252.22, Ethernet51/1
+                                 via 10.19.252.24, Ethernet52/1
+ B E      10.1.241.92/32 [200/0] via 10.19.252.10, Ethernet49/1
+                                 via 10.19.252.20, Ethernet50/1
+                                 via 10.19.252.22, Ethernet51/1
+                                 via 10.19.252.24, Ethernet52/1
+ B E      10.1.241.98/32 [200/0] via 10.19.252.10, Ethernet49/1
+                                 via 10.19.252.20, Ethernet50/1
+                                 via 10.19.252.22, Ethernet51/1
+                                 via 10.19.252.24, Ethernet52/1
+ B E      10.1.241.120/32 [200/0] via 10.19.252.10, Ethernet49/1
+                                  via 10.19.252.20, Ethernet50/1
+                                  via 10.19.252.22, Ethernet51/1
+                                  via 10.19.252.24, Ethernet52/1
+ B E      10.1.241.143/32 [200/0] via 10.19.252.10, Ethernet49/1
+                                  via 10.19.252.20, Ethernet50/1
+                                  via 10.19.252.22, Ethernet51/1
+                                  via 10.19.252.24, Ethernet52/1
+ B E      10.1.241.145/32 [200/0] via 10.19.252.10, Ethernet49/1  
+ B E      10.1.241.220/32 [200/0] via 10.19.32.27, Vlan100
+ B E      10.1.241.221/32 [200/0] via 10.19.32.27, Vlan100
+ B E      10.1.241.222/32 [200/0] via 10.19.32.27, Vlan100
+ C        10.19.32.0/26 is directly connected, Vlan100
+ C        10.19.252.10/31 is directly connected, Ethernet49/1
+ C        10.19.252.20/31 is directly connected, Ethernet50/1
+ C        10.19.252.22/31 is directly connected, Ethernet51/1
+ C        10.19.252.24/31 is directly connected, Ethernet52/1
+ C        10.19.255.9/32 is directly connected, Loopback0

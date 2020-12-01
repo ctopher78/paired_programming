@@ -55,7 +55,6 @@ def main():
         print(d)
         if d.get("STANCE") == "bipedal":
             print(d["NAME"])
-        
 
 
 if __name__ == "__main__":

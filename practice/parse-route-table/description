@@ -1,3 +1,5 @@
+
+Challenge #1:
 parse ip route table and print the routes associated with each protocol
 
 bgp
@@ -6,3 +8,10 @@ bgp
 ospf
 1.1.1.1
 4.4.4.4
+
+
+Challenge #2:
+parse ip route table and print the next-hops associated to each prefix
+
+Prefix: 10.1.241.217/32
+Next-hops: 10.19.252.10 10.19.252.20 10.19.252.22 10.19.252.24

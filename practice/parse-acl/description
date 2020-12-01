@@ -6,7 +6,7 @@ example:
 
 
 Problem 2
-given a string, sort the top source addresses, by number of packats, being blocked by acls and print the source ip, the total packets, and the total bytes.
+given a string, sort the top source addresses, by number of packets, being blocked by acls and print the source ip, the total packets, and the total bytes.
 
 example:
 1.1.1.1 10 4500

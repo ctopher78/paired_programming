@@ -1,0 +1,17 @@
+pyChallenge #1
+
+Parse bgp routes and print prefix, router originator IP, and ASPATH
+
+Input:
+1.0.0.0/24         *[BGP/170] 1d 15:33:36, localpref 100, from 12.122.159.217
+                      AS path: 7018 6453 13335 13335 I, validation-state: valid
+                    > to 12.0.1.1 via em0.0
+                    [BGP/170] 1d 11:14:34, localpref 100, from 12.122.83.238
+                      AS path: 7018 6453 13335 13335 I, validation-state: valid
+                    > to 12.0.1.1 via em0.0
+
+
+Output:
+1.0.0.0/24
+7018 6453 13335 13335
+7018 6453 13335 13335
